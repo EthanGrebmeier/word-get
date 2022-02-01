@@ -19,6 +19,7 @@ app.get('/', async (req, res) => {
     await client.connect();
     console.log('Fetching Word...')
     const successfulWord = await client.get('word_of_day')
+    await client.quit()
     return res.json({
         word: successfulWord,
     })
